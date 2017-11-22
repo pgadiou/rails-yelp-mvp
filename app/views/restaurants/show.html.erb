@@ -1,0 +1,16 @@
+<div class="container">
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.address %></p>
+  <p>Contact <%= @restaurant.phone_number %></p>
+  <p><%= @restaurant.category %></p>
+  <div class="card">
+    <h3><%= link_to "add a review", new_restaurant_review_path(params[:id])%></h3>
+  </div>
+  <% Review.where(restaurant_id: @restaurant.id).each do |review| %>
+    <div class="card">
+      <h3>User's review</h3>
+      <p><%= review.content %></p>
+      <p>Rating given <%= review.rating%>/5</p>
+    </div>
+  <% end %>
+</div>

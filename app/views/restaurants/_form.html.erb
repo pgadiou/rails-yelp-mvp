@@ -1,0 +1,16 @@
+<div class="container">
+  <%= simple_form_for [@restaurant] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category, as: :check_boxes,
+      collection: [
+      'chinese',
+      'italian',
+      'japanese',
+      'french',
+      'belgian'],
+      wrapper: :vertical_radio_and_checkboxes %>
+    <%= f.submit "add a restaurant", class: "btn btn-primary" %>
+  <% end %>
+</div>
